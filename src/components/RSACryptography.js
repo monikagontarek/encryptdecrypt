@@ -25,11 +25,16 @@ const EncryptComponent = () => {
         const newValue = event.target.value;
         setInputValue(newValue);
     }
+    const hanldeClear = () => {
+        setInputValue("");
+        setEncryptedMessage("");
+    };
 
     return (
         <div>
             <input type="text" value={inputValue} onChange={handleChange} />
             <button onClick={handleClick}>Encrypt</button>
+            <button onClick={hanldeClear}>Wyczyść</button>
             <div><span>{encryptedMessage}</span></div>
         </div>
     )
@@ -53,15 +58,23 @@ const DecryptComponent = () => {
         const newValue = event.target.value;
         setInputValue(newValue);
     }
+    const hanldeClear = () => {
+        setInputValue("");
+        setDecryptedMessage("");
+    };
 
     return (
         <div>
             <input type="text" value={inputValue} onChange={handleChange} />
             <button onClick={handleClick}>Decrypt</button>
+            <button onClick={hanldeClear}>Wyczyść</button>
             <div><span>{decryptedMessage}</span></div>
+
         </div>
     )
 }
+
+
 
 
 const RSACryptography = () => {
@@ -69,6 +82,7 @@ const RSACryptography = () => {
         <>
             <EncryptComponent/>
             <DecryptComponent/>
+
         </>
     )
 }
